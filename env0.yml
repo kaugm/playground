@@ -8,4 +8,4 @@ deploy:
     terraformPlan:
       after:
         - terraform show -json .tf-plan | jq '.' > tf-plan.json
-        - checkov -f tf-plan.json --external-checks-dir extra_checkov_checks --check CKV_AWS_999
+        - checkov -f s3_bucket.tf --external-checks-dir extra_checkov_checks --check CKV_AWS_999
