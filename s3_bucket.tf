@@ -14,7 +14,7 @@ provider "aws" {
 
 
 resource "aws_s3_bucket" "testing" {
-  bucket = "kaugm-s3-bucket-250219"
+  bucket = "env0_kaugm-s3-bucket-250219"
 
   tags = {
     Purpose = "env0"
