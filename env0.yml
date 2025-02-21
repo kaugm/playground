@@ -10,4 +10,5 @@ deploy:
         - terraform plan --out tfplan.binary
         - terraform show -json tfplan.binary | jq > tfplan.json
         - cat tfplan.json
+        - print $ENV0_TF_PLAN_JSON
         - checkov -f tfplan.json --external-checks-dir extra_checkov_checks --check CKV_AWS_999
