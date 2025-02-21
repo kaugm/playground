@@ -1,11 +1,10 @@
-version: 1
-
+version: 2
 deploy:
   steps:
-    setupVariables:
-      after:
-        - pip3 install checkov
     terraformPlan:
-      after:
-        - cat $ENV0_TF_PLAN_JSON
-        - checkov -f $ENV0_TF_PLAN_JSON --external-checks-dir extra_checkov_checks --check CKV_AWS_999
+      before:
+      - name: Checkov
+        use: https://github.com/kaugm/env0-checkov-plugin
+        inputs:
+          directory: ./extra_checkov_checks 
+          flags: --framework terraform
