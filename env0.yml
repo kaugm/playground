@@ -6,5 +6,5 @@ deploy:
       - name: Checkov
         use: https://github.com/kaugm/env0-checkov-plugin
         inputs:
-          directory: ./extra_checkov_checks 
+          directory: extra_checkov_checks 
           flags: --framework terraform
