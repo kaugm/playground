@@ -7,4 +7,4 @@ deploy:
         use: https://github.com/kaugm/env0-checkov-plugin
         inputs:
           directory: .
-          flags: --framework terraform --external-checks-dir extra_checkov_checks --check CKV_AWS_999 
+          flags: --framework terraform -f $ENV0_TF_PLAN_JSON --external-checks-dir extra_checkov_checks --check CKV_AWS_999 
