@@ -16,18 +16,7 @@ provider "aws" {
 resource "aws_s3_bucket" "testing" {
   bucket = "env0_kaugm-s3-bucket-250219"
 
-  lifecycle_rule {
-    id      = "archive"
-    enabled = true
-    transition {
-      days          = 30
-      storage_class = "STANDARD_IA"
-    }
-    transition {
-      days          = 60
-      storage_class = "GLACIER"
-    }
-  }
+  object_lock_enabled = true
 
   tags = {
     Purpose = "env0"
