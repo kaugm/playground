@@ -7,5 +7,6 @@ deploy:
         - pip3 install checkov
     terraformPlan:
       after:
-        - terraform show -json .tf-plan | jq '.' > tf-plan.json
-        - checkov -f s3_bucket.tf --external-checks-dir extra_checkov_checks --check CKV_AWS_999
+        - tf plan --out tfplan.binary
+        - terraform show -json tfplan.binary | jq > tfplan.json
+        - checkov -f tfplan.json --external-checks-dir extra_checkov_checks --check CKV_AWS_999
