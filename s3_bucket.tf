@@ -18,6 +18,7 @@ resource "aws_s3_bucket" "testing" {
 
   tags = {
     Purpose = "env0"
+    Update = "New_tags"
   }
 }
 
