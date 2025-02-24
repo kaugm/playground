@@ -6,5 +6,5 @@ deploy:
       - name: Checkov
         use: https://github.com/kaugm/env0-checkov-plugin
         inputs:
-          directory: $ENV0_TF_PLAN_JSON
+          directory: .
           flags: --framework terraform --external-checks-dir extra_checkov_checks --check CKV_AWS_999 
